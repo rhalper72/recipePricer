@@ -33,3 +33,4 @@ describe('User model', () => {
     }) // end describe('correctPassword')
   }) // end describe('instanceMethods')
 }) // end describe('User model')
+console.log('USER: ', User)

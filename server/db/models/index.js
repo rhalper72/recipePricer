@@ -1,18 +1,40 @@
 const User = require('./user')
+const Ingredient = require('./ingredient');
+const RecipeIngredient = require('./recipeIngredient');
+const PurchaseIngredient = require('./purcahseIngredient');
+const Recipe = require('./recipe');
 
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
+//Associations
+//one (Recipe) to many (Recipe Ingredients)
+RecipeIngredient.belongsTo(Recipe);
+Recipe.hasMany(RecipeIngredient, {Cascade: true});
+//one(Ingredient) to many (Recipe Ingredients)... do I want cascade delete???
+RecipeIngredient.belongsTo(Ingredient);
+Ingredient.hasMany(RecipeIngredient, {Cascade: true});
+//one(Ingredient) to many (Purchase Ingredients)... do I want cascade delete???
+PurchaseIngredient.belongsTo(Ingredient);
+Ingredient.hasMany(PurchaseIngredient, {Cascade: true});
+//one (User) to many (Purchase Ingredients)
+PurchaseIngredient.belongsTo(User);
+User.hasMany(PurchaseIngredient, {Cascade: true});
+//one (User) to many (Recipes)
+Recipe.belongsTo(User);
+User.hasMany(Recipe, {Cascade: true});
 
-/**
- * We'll export all of our models here, so that any time a module needs a model,
- * we can just require it from 'db/models'
- * for example, we can say: const {User} = require('../db/models')
- * instead of: const User = require('../db/models/user')
- */
+//Still need models/associations for Conversion and Collection
+
+//OLD CODE TO DELETE
+// Ingredient.belongsToMany(Recipe, {through: 'recipe_ingredient'});
+// FinalProduct.belongsToMany(Recipe, {through: 'finalProduct_recipe'});
+// User.hasMany(Recipe);
+// Ingredient.hasOne(Conversion);
+
 module.exports = {
-  User
+  User,
+  Conversion,
+  FinalProduct,
+  Ingredient,
+  Recipe,
+  PurchaseIngredient,
+  RecipeIngredient,
 }
