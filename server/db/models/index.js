@@ -1,7 +1,7 @@
 const User = require('./user')
 const Ingredient = require('./ingredient');
 const RecipeIngredient = require('./recipeIngredient');
-const PurchaseIngredient = require('./purcahseIngredient');
+const PurchaseIngredient = require('./purchaseIngredient');
 const Recipe = require('./recipe');
 
 //Associations
@@ -31,8 +31,6 @@ User.hasMany(Recipe, {Cascade: true});
 
 module.exports = {
   User,
-  Conversion,
-  FinalProduct,
   Ingredient,
   Recipe,
   PurchaseIngredient,

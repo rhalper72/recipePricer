@@ -14,7 +14,7 @@ const Recipe = db.define('recipe', {
         type: Sequelize.DECIMAL,
     },
     batches: {
-        type: Sequelize.FlOAT,
+        type: Sequelize.DECIMAL,
     },
 });
 
