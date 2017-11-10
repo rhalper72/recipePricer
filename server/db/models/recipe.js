@@ -12,9 +12,11 @@ const Recipe = db.define('recipe', {
     },
     serving: {
         type: Sequelize.DECIMAL,
+        defaultValue: 1,
     },
     batches: {
         type: Sequelize.DECIMAL,
+        defaultValue: 1,
     },
 });
 

@@ -15,7 +15,7 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>RECIPE PRICER</h1>
       <nav>
         {
           isLoggedIn
@@ -33,6 +33,10 @@ const Main = (props) => {
       </nav>
       <hr />
       {children}
+      <button
+          className="button is-danger is-small"
+        >HI!!!
+        </button>
     </div>
   )
 }
