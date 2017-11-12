@@ -4,7 +4,7 @@ import {Router} from 'react-router'
 import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, UserHome, LandingPage, CreateRecipeContainer, SingleRecipeContainer} from './components'
+import {Main, Login, Signup, UserHome, LandingPage, CreateRecipeContainer, SingleRecipeContainer, CreateRecipeIngredientContainer} from './components'
 import {me} from './store'
 
 /**
@@ -33,6 +33,7 @@ class Routes extends Component {
                   <Route exact path='/landing' component={LandingPage} />
                   <Route exact path='/newRecipe' component={CreateRecipeContainer} />
                   <Route exact path='/recipe/:id' component={SingleRecipeContainer} />
+                  <Route exact path='/recipe/:id/addIngredient' component={CreateRecipeIngredientContainer} />
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}

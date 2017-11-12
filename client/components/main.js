@@ -33,10 +33,10 @@ const Main = (props) => {
       </nav>
       <hr />
       {children}
-      <button
+      {/* <button
           className="button is-danger is-small"
         >HI!!!
-        </button>
+        </button> */}
     </div>
   )
 }

@@ -17,10 +17,14 @@ const SingleRecipePresenter = (props) => {
             </figure>
           </div>
         </div>
+        <div className="container">
+          <h6 className="title is-6">Servings: {currentRecipe.serving} </h6>
+          <h6 className="title is-6">Batches: {currentRecipe.batches} </h6>
+        </div>
+        <div>
+        <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-medium">Add Ingredient</NavLink>
+        </div>
       </section>
-      {/* <section className="section">
-
-      </section> */}
     </div>
   )
 }
