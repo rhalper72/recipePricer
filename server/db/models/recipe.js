@@ -18,6 +18,10 @@ const Recipe = db.define('recipe', {
         type: Sequelize.DECIMAL,
         defaultValue: 1,
     },
+}, {
+    defaultScope: {
+        inclue: [{all: true}]
+    }
 });
 
 module.exports = Recipe;

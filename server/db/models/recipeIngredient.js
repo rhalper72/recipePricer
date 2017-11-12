@@ -10,6 +10,10 @@ const RecipeIngredient = db.define('recipeIngredient', {
         type: Sequelize.ENUM('Cups', 'Ounces', 'Tablespoons'),
     },
 
+}, {
+    defaultScope: {
+        include: [{all: true}]
+    }
 });
 
 module.exports = RecipeIngredient;
