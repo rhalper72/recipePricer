@@ -9,7 +9,7 @@ const SingleRecipePresenter = (props) => {
       <section className="section">
         <div className="container">
           <div>
-            <h1 className="title is-1">{currentRecipe.name}</h1>
+            <h3 className="title is-3">{currentRecipe.name}</h3>
           </div>
           <div>
             <figure className="image is-128x128">
@@ -18,20 +18,24 @@ const SingleRecipePresenter = (props) => {
           </div>
         </div>
         <div className="container">
-          <h6 className="title is-6">Servings: {currentRecipe.serving} </h6>
-          <h6 className="title is-6">Batches: {currentRecipe.batches} </h6>
+          <h6 className="title is-6 recipe-sub-headers" >Servings: {currentRecipe.serving}</h6>
+          <h6 className="title is-6 recipe-sub-headers">Batches: {currentRecipe.batches} </h6>
+          <h6 className="title is-6 recipe-sub-headers">Total Cost: </h6>
+          <h6 className="title is-6 recipe-sub-headers">Total Cost Per Batch: </h6>
         </div>
-        <div>
-        <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-medium">Add Ingredient</NavLink>
-        <ul>
-          {recipeIngredients && recipeIngredients.map(recipeIngredient => {
-            return (
-              <li key={recipeIngredient.id} >
-                {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
-              </li>
-            )
-          })}
-        </ul>
+        <div className="container">
+          <div className="content">
+          <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-small">Add Ingredient</NavLink>
+          <ul>
+            {recipeIngredients && recipeIngredients.map(recipeIngredient => {
+              return (
+                <li key={recipeIngredient.id} >
+                  {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
         </div>
 
       </section>

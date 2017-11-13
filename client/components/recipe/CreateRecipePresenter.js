@@ -8,9 +8,7 @@ const CreateRecipePresenter = (props) => {
     <div>
       <form onSubmit={event => {
         event.preventDefault()
-        {/* if (event.target.recipeServings.value === ''){
-            event.target.recipeServings.value = 1
-        } */}
+
         const imageDefault = 'https://us.123rf.com/450wm/pixelbliss/pixelbliss1503/pixelbliss150300041/37890588-open-blank-recipe-book-surrounded-with-ingredients.jpg?ver=6'
         const servingValue = (event.target.recipeServings.value === '') ? 1 : event.target.recipeServings.value
         const imageValue = (event.target.recipeImage.value === '') ? imageDefault : event.target.recipeImage.value
@@ -22,7 +20,9 @@ const CreateRecipePresenter = (props) => {
           userId: userId
         })
       }}>
-
+      <div className="container">
+        <h3 className="title is-3">Add A New Recipe</h3>
+      </div>
       <div>
         <label>Recipe Name:</label>
         <div>
