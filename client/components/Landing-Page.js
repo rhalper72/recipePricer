@@ -21,8 +21,8 @@ const LandingPage = () => {
         <div className="container">
           <p>Have you ever wanted to know how much a recipe will cost you to make?</p>
           <p>Did you want to know exactly how much you made (or lost) on that batch of cupcakes you sold to a friend for their party?</p>
-          <p>Well you have come to the right place. Just click the button below to start entering and pricing out your recipes</p>
-          <NavLink to="/newRecipe" className="button is-link is-medium">Get Started</NavLink>
+          <p>Well you have come to the right place. Just click the button below to get started entering and pricing out your recipes.</p>
+          <NavLink to="/newRecipe" className="button is-link is-medium">Add A Recipe</NavLink>
         </div>
       {/* </section> */}
     </div>

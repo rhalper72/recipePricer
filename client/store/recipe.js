@@ -33,11 +33,14 @@ export const fetchRecipes = () =>
     .then(recipes => dispatch(getRecipes(recipes)))
     .catch(err => console.error('Error getting recipes', err))
 
-export const postToRecipes = (userId, recipe) =>
+export const postToRecipes = (userId, recipe, history) =>
   dispatch => axios.post(`/api/recipes`, recipe)
     .then(res => {
       return res.data
     })
-    .then(postedRecipe => dispatch(addRecipe(postedRecipe)))
+    .then(postedRecipe => {
+        dispatch(addRecipe(postedRecipe))
+        history.push(`/recipe/${postedRecipe.id}`)
+    })
     .catch(err => console.error(`Error posting recipe`, err))
 

@@ -7,7 +7,7 @@ const RecipeIngredient = db.define('recipeIngredient', {
         allowNull: false
     },
     recipeUnit: {
-        type: Sequelize.ENUM('Cups', 'Ounces', 'Tablespoons'),
+        type: Sequelize.ENUM('Cups', 'Teaspoons', 'Tablespoons', 'Grams', 'Ounces', 'Pounds', 'Each'),
     },
 
 }, {

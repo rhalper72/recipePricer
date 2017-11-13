@@ -24,11 +24,11 @@ const mapStateToProps = state => ({
   recipes: state.recipes
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   addRecipe(userId, recipe) {
     console.log('IN ADD RECIPE______')
     event.preventDefault()
-    dispatch(postToRecipes(userId, recipe))
+    dispatch(postToRecipes(userId, recipe, ownProps.history))
   }
 })
 

@@ -42,8 +42,12 @@ const CreateRecipeIngredientPresenter = (props) => {
           {/* <input type="text" name="recipeUnit" className="input is-primary"  /> */}
           <select name="recipeUnit">
                 <option value="Cups">Cups</option>
-                <option value="Ounces">Ounces</option>
+                <option value="Teaspoons">Teaspoons</option>
                 <option value="Tablespoons">Tablespoons</option>
+                <option value="Grams">Grams</option>
+                <option value="Ounces">Ounces</option>
+                <option value="Pounds">Pounds</option>
+                <option value="Each">Each</option>
             })}
           </select>
         </div>
