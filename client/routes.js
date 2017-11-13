@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Router} from 'react-router'
-import {Route, Switch} from 'react-router-dom'
+// import {Router} from 'react-router'
+import {Route, Switch, withRouter} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import history from './history'
+// import history from './history'
 import {Main, Login, Signup, UserHome, LandingPage, CreateRecipeContainer, SingleRecipeContainer, CreateRecipeIngredientContainer} from './components'
 import {me} from './store'
 
@@ -19,7 +19,7 @@ class Routes extends Component {
     const {isLoggedIn} = this.props
 
     return (
-      <Router history={history}>
+      <div>
         <Main>
           <Switch>
             {/* Routes placed here are available to all visitors */}
@@ -40,7 +40,7 @@ class Routes extends Component {
             <Route component={Login} />
           </Switch>
         </Main>
-      </Router>
+      </div>
     )
   }
 }
@@ -64,7 +64,7 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Routes)
+export default withRouter(connect(mapState, mapDispatch)(Routes))
 
 /**
  * PROP TYPES

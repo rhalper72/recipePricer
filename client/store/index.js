@@ -5,13 +5,15 @@ import user from './user'
 import recipeReducer from './recipe'
 import currentRecipeReducer from './currentRecipe'
 import recipeIngredientReducer from './recipeIngredient'
+import ingredientReducer from './ingredient'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 const reducer = combineReducers({
     user,
     recipes: recipeReducer,
     currentRecipe: currentRecipeReducer,
-    recipeIngredients: recipeIngredientReducer
+    recipeIngredients: recipeIngredientReducer,
+    ingredients: ingredientReducer
 })
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({collapsed: true})))
 const store = createStore(reducer, middleware)
@@ -21,3 +23,4 @@ export * from './user'
 export * from './recipe'
 export * from './currentRecipe'
 export * from './recipeIngredient'
+export * from './ingredient'

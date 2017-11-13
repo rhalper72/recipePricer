@@ -1,7 +1,8 @@
 import React from 'react'
 
+
 const CreateRecipeIngredientPresenter = (props) => {
-  const { addRecipeIngredient, recipeId } = props
+  const { addRecipeIngredient, recipeId, ingredients } = props
 
   return (
     <div>
@@ -18,21 +19,33 @@ const CreateRecipeIngredientPresenter = (props) => {
       <div>
         <label>Ingredient:</label>
         <div>
-          <input type="text" name="ingredientId" className="input is-primary" />
+          <select name="ingredientId">
+            {ingredients && ingredients.map(ingredient => {
+              return (
+                <option key={ingredient.id} value={ingredient.id}>{`${ingredient.name}`}</option>
+              )
+            })}
+          </select>
         </div>
       </div>
 
       <div>
         <label>Quantity:</label>
         <div>
-          <input type="text" name="recipeQuantity" placeholder="default" className="input is-primary" />
+          <input type="text" name="recipeQuantity" className="input is-primary" />
         </div>
       </div>
 
       <div>
         <label>Unit:</label>
         <div>
-          <input type="text" name="recipeUnit" className="input is-primary"  />
+          {/* <input type="text" name="recipeUnit" className="input is-primary"  /> */}
+          <select name="recipeUnit">
+                <option value="Cups">Cups</option>
+                <option value="Ounces">Ounces</option>
+                <option value="Tablespoons">Tablespoons</option>
+            })}
+          </select>
         </div>
       </div>
       <div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const SingleRecipePresenter = (props) => {
-  const { currentRecipe } = props
+  const { currentRecipe, recipeIngredients, ingredients } = props
   console.log('-----props----', props)
   return (
     <div>
@@ -23,7 +23,17 @@ const SingleRecipePresenter = (props) => {
         </div>
         <div>
         <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-medium">Add Ingredient</NavLink>
+        <ul>
+          {recipeIngredients && recipeIngredients.map(recipeIngredient => {
+            return (
+              <li key={recipeIngredient.id} >
+                {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
+              </li>
+            )
+          })}
+        </ul>
         </div>
+
       </section>
     </div>
   )
