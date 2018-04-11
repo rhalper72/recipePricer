@@ -5,7 +5,8 @@ const CreateRecipeIngredientPresenter = (props) => {
   const { addRecipeIngredient, recipeId, ingredients } = props
 
   return (
-    <div>
+    <div >
+      <h4 className="title is-4"> Step 1/2: Add the Ingredient </h4>
       <form
       id="recipe-ingredient-form"
       onSubmit={event => {
@@ -55,7 +56,7 @@ const CreateRecipeIngredientPresenter = (props) => {
         </div>
       </div>
       <div>
-      <button type="submit" value="submit" className="button is-info recipe-ingredient-form-item">Add Ingredient</button>
+      <button type="submit" value="submit" className="button is-info recipe-ingredient-form-item">Submit</button>
       </div>
 
       </form>

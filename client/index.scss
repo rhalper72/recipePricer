@@ -32,14 +32,29 @@ body {
     display: flex;
   }
 
-  .ingredient-price-form {
+  #ingredient-price-form {
     display: flex;
+    align-items: flex-end;
+    margin-left: 1em;
+  }
+
+  .ingredient-price-form-item {
+    margin: 1em;
+  }
+
+  .ingredient-price-form-item input {
+    width: 13em;
+  }
+
+  .ingredient-price-form-item select {
+    width: 13em;
   }
 
   #recipe-ingredient-form {
     display: flex;
     align-items: flex-end;
     margin-left: 1em;
+    margin-bottom: 2em;
   }
 
   .recipe-ingredient-form-item {
