@@ -6,7 +6,9 @@ const CreateRecipeIngredientPresenter = (props) => {
 
   return (
     <div>
-      <form onSubmit={event => {
+      <form
+      id="recipe-ingredient-form"
+      onSubmit={event => {
         event.preventDefault()
         addRecipeIngredient( recipeId, {
           ingredientId: event.target.ingredientId.value,
@@ -16,10 +18,10 @@ const CreateRecipeIngredientPresenter = (props) => {
         })
       }}>
 
-      <div>
+      <div className="recipe-ingredient-form-item">
         <label>Ingredient:</label>
-        <div>
-          <select name="ingredientId">
+        <div className="select is-info">
+          <select name="ingredientId" >
             {ingredients && ingredients.map(ingredient => {
               return (
                 <option key={ingredient.id} value={ingredient.id}>{`${ingredient.name}`}</option>
@@ -29,16 +31,16 @@ const CreateRecipeIngredientPresenter = (props) => {
         </div>
       </div>
 
-      <div>
+      <div className="recipe-ingredient-form-item">
         <label>Quantity:</label>
         <div>
           <input type="text" name="recipeQuantity" className="input is-primary" />
         </div>
       </div>
 
-      <div>
+      <div className="recipe-ingredient-form-item">
         <label>Unit:</label>
-        <div>
+        <div className="select is-info">
           {/* <input type="text" name="recipeUnit" className="input is-primary"  /> */}
           <select name="recipeUnit">
                 <option value="Cups">Cups</option>
@@ -53,7 +55,7 @@ const CreateRecipeIngredientPresenter = (props) => {
         </div>
       </div>
       <div>
-      <button type="submit" value="submit" className="button is-info">Add Ingredient</button>
+      <button type="submit" value="submit" className="button is-info recipe-ingredient-form-item">Add Ingredient</button>
       </div>
 
       </form>

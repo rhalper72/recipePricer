@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { postToRecipeIngredients, fetchIngredients } from '../../store'
 import CreateRecipeIngredientPresenter from './CreateRecipeIngredientPresenter'
+import IngredientPriceForm from './IngredientPriceForm'
 
 class CreateRecipeIngredientContainerClass extends Component {
   // componentDidMount() {
@@ -10,15 +11,19 @@ class CreateRecipeIngredientContainerClass extends Component {
   // }
     render () {
       const recipeId = this.props.match.params.id
+      const ingredientPriceId = this.props.match.params.priceId
       const {addRecipeIngredient, currentRecipe, ingredients} = this.props
       // this.props.getIngredients()
       return (
-        currentRecipe &&
-          <CreateRecipeIngredientPresenter
-            addRecipeIngredient={addRecipeIngredient}
-            recipeId={recipeId}
-            ingredients={ingredients}
-          />
+        <div>
+          {currentRecipe &&
+            <CreateRecipeIngredientPresenter
+              addRecipeIngredient={addRecipeIngredient}
+              recipeId={recipeId}
+              ingredients={ingredients}
+            />}
+          {ingredientPriceId ? <IngredientPriceForm /> : <div />}
+        </div>
       )
     }
   }

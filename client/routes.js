@@ -34,6 +34,7 @@ class Routes extends Component {
                   <Route exact path='/newRecipe' component={CreateRecipeContainer} />
                   <Route exact path='/recipe/:id' component={SingleRecipeContainer} />
                   <Route exact path='/recipe/:id/addIngredient' component={CreateRecipeIngredientContainer} />
+                  <Route exact path='/recipe/:id/addIngredient/:priceId' component={CreateRecipeIngredientContainer} />
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}

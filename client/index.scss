@@ -23,10 +23,10 @@ body {
     margin: 1em;
   }
 
-  form div {
-    margin: 1em;
-    display: inline-block;
-  }
+  // form div {
+  //   margin: 1em;
+  //   display: inline-block;
+  // }
 
   .recipe-ingredient {
     display: flex;
@@ -34,5 +34,23 @@ body {
 
   .ingredient-price-form {
     display: flex;
+  }
+
+  #recipe-ingredient-form {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 1em;
+  }
+
+  .recipe-ingredient-form-item {
+    margin: 1em;
+  }
+
+  .recipe-ingredient-form-item select {
+    width: 13em;
+  }
+
+  .recipe-ingredient-form-item input {
+    width: 13em;
   }
 }
