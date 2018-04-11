@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import IngredientPriceForm from '../ingredients/IngredientPriceForm'
 
 const SingleRecipePresenter = (props) => {
   const { currentRecipe, recipeIngredients, ingredients } = props
@@ -29,9 +30,11 @@ const SingleRecipePresenter = (props) => {
           <ul>
             {recipeIngredients && recipeIngredients.map(recipeIngredient => {
               return (
-                <li key={recipeIngredient.id} >
-                  {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
-                </li>
+                <div className="recipe-ingredient" key={recipeIngredient.id} >
+                  <li>
+                    {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
+                  </li>
+                </div>
               )
             })}
           </ul>
