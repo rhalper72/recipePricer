@@ -9,7 +9,7 @@ class CreateRecipeIngredientContainerClass extends Component {
     render () {
       const recipeId = this.props.match.params.id
       const ingredientPriceId = this.props.match.params.priceId
-      const {addRecipeIngredient, currentRecipe, ingredients} = this.props
+      const {addRecipeIngredient, currentRecipe, ingredients, addPurchaseIngredient, user} = this.props
       return (
         <div>
           {currentRecipe &&
