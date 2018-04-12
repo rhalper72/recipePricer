@@ -21,9 +21,8 @@ class CreateRecipeIngredientContainerClass extends Component {
           {ingredientId ? <IngredientPriceForm 
             addPurchaseIngredient={addPurchaseIngredient}
             recipeId={recipeId}
-            ingredients={ingredients}
-            
-          
+            ingredientId={ingredientId}
+            userId={user.id}
           /> : ''}
         </div>
       )

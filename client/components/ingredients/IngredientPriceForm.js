@@ -1,30 +1,42 @@
 import React from 'react'
 
 const IngredientPriceForm = (props) => {
-  // const { addRecipe, user } = props
+  const { addPurchaseIngredient, recipeId, ingredientId, userId } = props
   //Form is currently just a placeholder, on submit and other functionality is not in yet.
   return (
     <div >
       <h4 className="title is-4"> Step 2/2: Add the Price </h4>
-      <form id="ingredient-price-form">
+      <form
+        id="ingredient-price-form"
+        onSubmit={event => {
+          event.preventDefault()
+          addPurchaseIngredient(recipeId, {
+            ingredientId: ingredientId,
+            userId: userId,
+            purchasePrice: event.target.purchasePrice.value,
+            purchaseQuantity: event.target.purchaseQuantity.value,
+            purchaseUnit: event.target.purchaseUnit.value,
+          })
+        }}>
+
       <div className="ingredient-price-form-item">
         <label>Price:</label>
         <div>
-          <input type="text" name="ingredientPrice" className="input is-primary" placeholder="$" />
+          <input type="text" name="purchasePrice" className="input is-primary" placeholder="$" />
         </div>
       </div>
 
       <div className="ingredient-price-form-item">
         <label>Amount Purchased:</label>
         <div>
-          <input type="text" name="ingredientAmount" placeholder="default" className="input is-primary" />
+          <input type="text" name="purchaseQuantity" placeholder="default" className="input is-primary" />
         </div>
       </div>
 
       <div className="ingredient-price-form-item">
         <label>Unit Purchased:</label>
         <div>
-          <input type="text" name="ingredientUnit" className="input is-primary"  />
+          <input type="text" name="purchaseUnit" className="input is-primary"  />
         </div>
       </div>
       <div className="ingredient-price-form-item">

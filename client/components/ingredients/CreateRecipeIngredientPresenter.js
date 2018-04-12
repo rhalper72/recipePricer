@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const CreateRecipeIngredientPresenter = (props) => {
   const { addRecipeIngredient, recipeId, ingredients } = props
 
