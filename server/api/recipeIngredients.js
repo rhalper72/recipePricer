@@ -17,7 +17,7 @@ router.get('/recipe/:recipeId', (req, res, next) => {
 
 router.post('/', function (req, res, next) {
   RecipeIngredient.create(req.body)
-  .then(recipe => res.json(recipe))
+  .then(recipeIng => res.json(recipeIng))
   .catch(next)
 })
 
