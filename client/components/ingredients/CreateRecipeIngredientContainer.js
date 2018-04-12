@@ -6,14 +6,10 @@ import CreateRecipeIngredientPresenter from './CreateRecipeIngredientPresenter'
 import IngredientPriceForm from './IngredientPriceForm'
 
 class CreateRecipeIngredientContainerClass extends Component {
-  // componentDidMount() {
-  //   this.props.getIngredients()
-  // }
     render () {
       const recipeId = this.props.match.params.id
       const ingredientPriceId = this.props.match.params.priceId
       const {addRecipeIngredient, currentRecipe, ingredients} = this.props
-      // this.props.getIngredients()
       return (
         <div>
           {currentRecipe &&
@@ -29,14 +25,12 @@ class CreateRecipeIngredientContainerClass extends Component {
   }
 
   const mapStateToProps = state => ({
+    user: state.user,
     currentRecipe: state.currentRecipe,
     ingredients: state.ingredients
   })
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
-    // getIngredients() {
-    //   dispatch(fetchIngredients())
-    // },
     addRecipeIngredient(recipeId, recipeIngredient) {
       console.log('IN ADD RECIPE INGREDIENT______')
       event.preventDefault()
