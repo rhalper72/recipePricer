@@ -41,7 +41,7 @@ export const postToRecipeIngredients = (recipeId, recipeIngredient, history) =>
     .then(res => res.data)
     .then(postedRecipeIngredient => {
       dispatch(addRecipeIngredient(postedRecipeIngredient))
-      history.push(`/recipe/${recipeId}/addIngredient/${postedRecipeIngredient.id}`)
+      history.push(`/recipe/${recipeId}/addIngredient/${postedRecipeIngredient.ingredientId}`)
     })
     .catch(err => console.error(`Error posting recipe ingredient`, err))
 

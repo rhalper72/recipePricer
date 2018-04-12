@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { postToRecipeIngredients, fetchIngredients } from '../../store'
+import { postToRecipeIngredients, postToPurchaseIngredients } from '../../store'
 import CreateRecipeIngredientPresenter from './CreateRecipeIngredientPresenter'
 import IngredientPriceForm from './IngredientPriceForm'
 
 class CreateRecipeIngredientContainerClass extends Component {
     render () {
       const recipeId = this.props.match.params.id
-      const ingredientPriceId = this.props.match.params.priceId
+      const ingredientId = this.props.match.params.ingredientId
       const {addRecipeIngredient, currentRecipe, ingredients, addPurchaseIngredient, user} = this.props
       return (
         <div>
@@ -18,7 +18,13 @@ class CreateRecipeIngredientContainerClass extends Component {
               recipeId={recipeId}
               ingredients={ingredients}
             />}
-          {ingredientPriceId ? <IngredientPriceForm /> : ''}
+          {ingredientId ? <IngredientPriceForm 
+            addPurchaseIngredient={addPurchaseIngredient}
+            recipeId={recipeId}
+            ingredients={ingredients}
+            
+          
+          /> : ''}
         </div>
       )
     }
@@ -32,9 +38,13 @@ class CreateRecipeIngredientContainerClass extends Component {
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
     addRecipeIngredient(recipeId, recipeIngredient) {
-      console.log('IN ADD RECIPE INGREDIENT______')
       event.preventDefault()
       dispatch(postToRecipeIngredients(recipeId, recipeIngredient, ownProps.history))
+    },
+    addPurchaseIngredient(recipeId, purchaseIngredient) {
+      console.log('IN ADD PURCHASE INGREDIENT______')
+      event.preventDefault()
+      dispatch(postToPurchaseIngredients(recipeId, purchaseIngredient, ownProps.history))
     }
   })
 
