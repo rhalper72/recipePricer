@@ -8,11 +8,9 @@ const RecipePrice = db.define('recipePrice', {
     },
     serving: {
         type: Sequelize.DECIMAL,
-        defaultValue: 1,
     },
     batches: {
         type: Sequelize.DECIMAL,
-        defaultValue: 1,
     }
 });
 
