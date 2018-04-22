@@ -24,6 +24,10 @@ User.hasMany(Recipe, {Cascade: true});
 //one (ingredient) to one (conversion)
 Ingredient.belongsTo(Conversion);
 Conversion.hasOne(Ingredient);
+//one (PurchaseIngredient) to many (RecipeIngredients)
+RecipeIngredient.belongsTo(PurchaseIngredient);
+PurchaseIngredient.hasMany(RecipeIngredient, {Cascade: true});
+
 
 //Still need models/associations Collection
 
