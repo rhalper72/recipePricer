@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import IngredientPriceForm from '../ingredients/IngredientPriceForm'
+import RecipeIngredientPresenter from '../ingredients/RecipeIngredientPresenter'
 
 const SingleRecipePresenter = (props) => {
   const { currentRecipe, recipeIngredients, ingredients } = props
@@ -26,19 +26,20 @@ const SingleRecipePresenter = (props) => {
         </div>
         <div className="container">
           <div className="content">
-          <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-small">Add Ingredient</NavLink>
-          <ul>
-            {recipeIngredients && recipeIngredients.map(recipeIngredient => {
-              return (
-                <div className="recipe-ingredient" key={recipeIngredient.id} >
-                  <li>
-                    {`${ingredients[recipeIngredient.ingredientId - 1].name}: ${recipeIngredient.recipeQuantity} ${recipeIngredient.recipeUnit}`}
-                  </li>
-                </div>
-              )
-            })}
-          </ul>
-        </div>
+            <NavLink to={`/recipe/${currentRecipe.id}/addIngredient`} className="button is-link is-small">Add Ingredient</NavLink>
+            <ul>
+              {recipeIngredients && recipeIngredients.map(recipeIngredient => {
+                return (
+                  <div key={recipeIngredient.id}>
+                    <RecipeIngredientPresenter
+                      ingredients={ingredients}
+                      recipeIngredient={recipeIngredient}
+                    />
+                  </div>
+                )
+              })}
+            </ul>
+          </div>
         </div>
 
       </section>
