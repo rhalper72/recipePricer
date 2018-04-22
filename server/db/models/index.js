@@ -4,6 +4,7 @@ const RecipeIngredient = require('./recipeIngredient');
 const PurchaseIngredient = require('./purchaseIngredient');
 const Recipe = require('./recipe');
 const Conversion = require('./conversion');
+const RecipePrice = require('./recipePrice');
 
 //Associations
 //one (Recipe) to many (Recipe Ingredients)
@@ -27,7 +28,9 @@ Conversion.hasOne(Ingredient);
 //one (PurchaseIngredient) to many (RecipeIngredients)
 RecipeIngredient.belongsTo(PurchaseIngredient);
 PurchaseIngredient.hasMany(RecipeIngredient, {Cascade: true});
-
+//one (Recipe) to many (RecipePrices)
+RecipePrice.belongsTo(Recipe);
+Recipe.hasMany(RecipePrice, {Cascade: true});
 
 //Still need models/associations Collection
 
@@ -38,4 +41,5 @@ module.exports = {
   PurchaseIngredient,
   RecipeIngredient,
   Conversion,
+  RecipePrice
 }
