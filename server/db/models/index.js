@@ -21,9 +21,6 @@ User.hasMany(PurchaseIngredient, {Cascade: true});
 //one (User) to many (Recipes)
 Recipe.belongsTo(User);
 User.hasMany(Recipe, {Cascade: true});
-//one (PurchaseIngredient) to many (RecipeIngredients)
-RecipeIngredient.belongsTo(PurchaseIngredient);
-PurchaseIngredient.hasMany(RecipeIngredient, {Cascade: true});
 //one (Recipe) to many (RecipePrices)
 RecipePrice.belongsTo(Recipe);
 Recipe.hasMany(RecipePrice, {Cascade: true});

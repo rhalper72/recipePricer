@@ -36,12 +36,17 @@ export const fetchIngredientsForRecipe = recipeId =>
     .then(recipeIngredients => dispatch(getIngredientsForRecipe(recipeIngredients)))
     .catch(err => console.error('Error getting ingredients for recipe', err))
 
-export const postToRecipeIngredients = (recipeId, recipeIngredient, history) =>
-  dispatch => axios.post(`/api/recipeIngredients`, recipeIngredient)
-    .then(res => res.data)
+export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => {
+  console.log('the recipe ingredient', recipeIngredient)
+  return dispatch => axios.post(`/api/recipeIngredients`, recipeIngredient)
+    .then(res => {
+      console.log('the res', res)
+      return res.data
+    })
     .then(postedRecipeIngredient => {
       dispatch(addRecipeIngredient(postedRecipeIngredient))
       history.push(`/recipe/${recipeId}/addIngredient/${postedRecipeIngredient.ingredientId}`)
     })
     .catch(err => console.error(`Error posting recipe ingredient`, err))
+  }
 
