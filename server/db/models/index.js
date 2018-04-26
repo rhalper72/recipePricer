@@ -24,6 +24,9 @@ User.hasMany(Recipe, {Cascade: true});
 //one (Recipe) to many (RecipePrices)
 RecipePrice.belongsTo(Recipe);
 Recipe.hasMany(RecipePrice, {Cascade: true});
+//one (RecipeIngredient) to many (Purchase Ingredients)
+RecipeIngredient.belongsTo(PurchaseIngredient);
+PurchaseIngredient.hasMany(RecipeIngredient, {Cascade: true});
 
 //Still need models/associations Collection
 
