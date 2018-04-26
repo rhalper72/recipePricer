@@ -3,6 +3,7 @@ import axios from 'axios'
 //action types
 export const GET_INGREDIENTS_FOR_RECIPE = 'GET_INGREDIENTS_FOR_RECIPE'
 export const ADD_RECIPE_INGREDIENT = 'ADD_RECIPE_INGREDIENT'
+export const UPDATE_RECIPE_INGREDIENT = 'UPDATE_RECIPE_INGREDIENT'
 
 //action creators
 export const getIngredientsForRecipe = recipeIngredients => ({
@@ -13,6 +14,10 @@ export const addRecipeIngredient = recipeIngredient => ({
   type: ADD_RECIPE_INGREDIENT,
   recipeIngredient
 })
+export const modifyRecipeIngredient = recipeIngredient => ({
+  type: UPDATE_RECIPE_INGREDIENT,
+  recipeIngredient
+})
 
 //reducer
 export default function recipeIngredientReducer(recipeIngredients = [], action) {
@@ -21,6 +26,10 @@ export default function recipeIngredientReducer(recipeIngredients = [], action) 
       return action.recipeIngredients
     case ADD_RECIPE_INGREDIENT:
       return [...recipeIngredients, action.recipeIngredient]
+    case UPDATE_RECIPE_INGREDIENT:
+      return recipeIngredients.map((recipeIng) => {
+        return (recipeIng.id === action.recipeIngredient.id) ? action.recipeIngredient : recipeIng
+      })
     default:
       return recipeIngredients
   }
@@ -37,10 +46,8 @@ export const fetchIngredientsForRecipe = recipeId =>
     .catch(err => console.error('Error getting ingredients for recipe', err))
 
 export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => {
-  console.log('the recipe ingredient', recipeIngredient)
   return dispatch => axios.post(`/api/recipeIngredients`, recipeIngredient)
     .then(res => {
-      console.log('the res', res)
       return res.data
     })
     .then(postedRecipeIngredient => {
@@ -50,3 +57,12 @@ export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => 
     .catch(err => console.error(`Error posting recipe ingredient`, err))
   }
 
+  export const updateRecipeIngredient = (recipeId, content, recipeIngredientId, history) => {
+    return dispatch => axios.post(`/api/${recipeIngredientId}`, content)
+      .then(res => res.data)
+      .then(updatedRecipeIngredient => {
+        dispatch(modifyRecipeIngredient(updatedRecipeIngredient))
+        // history.push(`/recipe/${recipeId}/addIngredient/${postedRecipeIngredient.ingredientId}`)
+      })
+      .catch(err => console.error(`Error updating recipe ingredient`, err))
+    }

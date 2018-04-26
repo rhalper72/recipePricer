@@ -23,9 +23,9 @@ router.post('/', function (req, res, next) {
 
 router.put('/recipe/:recipeId', (req, res, next) => {
   RecipeIngredient.update(req.body,
-      {where: {recipeId: req.params.recipeId}
+      {where: {recipeId: req.params.recipeId}, returning: true
     })
-  .then(() => res.status(201))
+  .then((recipeIng) => res.json(recipeIng))
   .catch(next)
 })
 
