@@ -21,4 +21,12 @@ router.post('/', function (req, res, next) {
   .catch(next)
 })
 
+router.put('/recipe/:recipeId', (req, res, next) => {
+  RecipeIngredient.update(req.body,
+      {where: {recipeId: req.params.recipeId}
+    })
+  .then(() => res.status(201))
+  .catch(next)
+})
+
 module.exports = router;
