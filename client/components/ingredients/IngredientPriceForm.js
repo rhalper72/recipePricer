@@ -17,6 +17,7 @@ const IngredientPriceForm = (props) => {
             purchaseQuantity: event.target.purchaseQuantity.value,
             purchaseUnit: event.target.purchaseUnit.value,
           })
+          
         }}>
 
       <div className="ingredient-price-form-item">

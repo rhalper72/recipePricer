@@ -58,7 +58,7 @@ export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => 
   }
 
   export const updateRecipeIngredient = (recipeId, content, recipeIngredientId, history) => {
-    return dispatch => axios.post(`/api/${recipeIngredientId}`, content)
+    return dispatch => axios.put(`/api/${recipeIngredientId}`, content)
       .then(res => res.data)
       .then(updatedRecipeIngredient => {
         dispatch(modifyRecipeIngredient(updatedRecipeIngredient))

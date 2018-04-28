@@ -21,10 +21,10 @@ router.post('/', function (req, res, next) {
   .catch(next)
 })
 
-router.put('/recipe/:recipeId', (req, res, next) => {
-  RecipeIngredient.update(req.body,
-      {where: {recipeId: req.params.recipeId}, returning: true
-    })
+router.put('/:id', (req, res, next) => {
+  RecipeIngredient.update(req.body, {
+    where: {id: req.params.id}, returning: true
+  })
   .then((recipeIng) => res.json(recipeIng))
   .catch(next)
 })
