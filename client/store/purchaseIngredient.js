@@ -15,14 +15,14 @@ export const addPurchaseIngredient = purchaseIngredient => ({
 })
 
 //reducer
-export default function purchaseIngredientReducer(purchaseIngredients = [], action) {
+export default function purchaseIngredientReducer(state = {purchaseIngredients: [], currentPurchaseIngredient: {}}, action) {
   switch (action.type) {
     case GET_PURCHASEINFO_FOR_INGREDIENT:
-      return action.purchaseIngredients
+      return {...state, purchaseIngredients: action.purchaseIngredients}
     case ADD_PURCHASE_INGREDIENT:
-      return [...purchaseIngredients, action.purchaseIngredient]
+      return {...state, purchaseIngredients: [...purchaseIngredients, action.purchaseIngredient], currentPurchaseIngredient: action.purchaseIngredient}
     default:
-      return purchaseIngredients
+      return state
   }
 }
 
@@ -39,9 +39,7 @@ export const fetchPurchaseInfoForIngredients = ingredientId =>
 export const postToPurchaseIngredients = (recipeId, purchaseIngredient, history) =>
   dispatch => axios.post(`/api/purchaseIngredients`, purchaseIngredient)
     .then(res => res.data)
-    .then(postedPurchaseIngredient => {
-      dispatch(addPurchaseIngredient(postedPurchaseIngredient))
-      history.push(`/recipe/${recipeId}`)
-    })
+    .then(postedPurchaseIngredient => dispatch(addPurchaseIngredient(postedPurchaseIngredient)))
+      .then(() => {history.push(`/recipe/${recipeId}`)})
     .catch(err => console.error(`Error posting recipe ingredient`, err))
 

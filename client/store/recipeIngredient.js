@@ -42,7 +42,9 @@ export const fetchIngredientsForRecipe = recipeId =>
       console.log('IN THUNK!!!!', res)
       return res.data
     })
-    .then(recipeIngredients => dispatch(getIngredientsForRecipe(recipeIngredients)))
+    .then(recipeIngredients => {
+      return dispatch(getIngredientsForRecipe(recipeIngredients))
+    })
     .catch(err => console.error('Error getting ingredients for recipe', err))
 
 export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => {
@@ -57,8 +59,8 @@ export const postToRecipeIngredients = (recipeId, recipeIngredient, history) => 
     .catch(err => console.error(`Error posting recipe ingredient`, err))
   }
 
-  export const updateRecipeIngredient = (recipeId, content, recipeIngredientId, history) => {
-    return dispatch => axios.put(`/api/${recipeIngredientId}`, content)
+  export const updateRecipeIngredient = (updatedContent, recipeIngredientId) => {
+    return dispatch => axios.put(`/api/${recipeIngredientId}`, updatedContent)
       .then(res => res.data)
       .then(updatedRecipeIngredient => {
         dispatch(modifyRecipeIngredient(updatedRecipeIngredient))

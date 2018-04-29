@@ -12,7 +12,7 @@ const LandingPage = () => {
           </div>
           <div>
             <figure >
-              <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/22310457_10208970591415160_2135282077175847140_n.jpg?oh=ae1212aa46528bdc4b728060f1905b90&oe=5AAF9EA5" className="landing-img" />
+              <img src="https://s3.amazonaws.com/digitalgov/_legacy-img/2016/05/600-x-360-Background-with-the-ingredients-for-a-cake-MaksimVasic-iStock-Thinkstock-464617462.jpg" className="landing-img" />
             </figure>
           </div>
         </div>

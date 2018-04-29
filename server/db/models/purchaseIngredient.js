@@ -15,10 +15,10 @@ const PurchaseIngredient = db.define('purchaseIngredient', {
         defaultValue: 'Ounces',
     },
 
-}, {
-  defaultScope: {
-      include: [{all: true}]
-  }
+// }, {
+//   defaultScope: {
+//       include: [{all: true}]
+//   }
 });
 
 module.exports = PurchaseIngredient;

@@ -11,7 +11,10 @@ router.get('/recipe/:recipeId', (req, res, next) => {
   RecipeIngredient.findAll({
       where: {recipeId: req.params.recipeId}
     })
-  .then(recipes => res.json(recipes))
+  .then(recipeIngredients => {
+    console.log('!!!!!!!!!!!!!!!!!!!!', recipeIngredients)
+    res.json(recipeIngredients)
+  })
   .catch(next)
 })
 

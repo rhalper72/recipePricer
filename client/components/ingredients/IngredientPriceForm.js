@@ -1,8 +1,7 @@
 import React from 'react'
 
 const IngredientPriceForm = (props) => {
-  const { addPurchaseIngredient, recipeId, ingredientId, userId } = props
-  //Form is currently just a placeholder, on submit and other functionality is not in yet.
+  const { addPurchaseIngredient, editRecipeIngredient, recipeId, ingredientId, userId, currentPurchaseIngredient } = props
   return (
     <div >
       <h4 className="title is-4"> Step 2/2: Add the Price </h4>
@@ -10,6 +9,7 @@ const IngredientPriceForm = (props) => {
         id="ingredient-price-form"
         onSubmit={event => {
           event.preventDefault()
+          console.log('BEFFFOOOORRREE')
           addPurchaseIngredient(recipeId, {
             ingredientId: ingredientId,
             userId: userId,
@@ -17,7 +17,6 @@ const IngredientPriceForm = (props) => {
             purchaseQuantity: event.target.purchaseQuantity.value,
             purchaseUnit: event.target.purchaseUnit.value,
           })
-          
         }}>
 
       <div className="ingredient-price-form-item">
