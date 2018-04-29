@@ -35,7 +35,8 @@ class CreateRecipeIngredientContainerClass extends Component {
     user: state.user,
     currentRecipe: state.currentRecipe,
     ingredients: state.ingredients,
-    currentPurchaseIngredient: state.currentPurchaseIngredient
+    currentPurchaseIngredient: state.currentPurchaseIngredient,
+    currentRecipeIngredient: state.currentRecipeIngredient
   })
 
   const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -20,18 +20,18 @@ export const modifyRecipeIngredient = recipeIngredient => ({
 })
 
 //reducer
-export default function recipeIngredientReducer(recipeIngredients = [], action) {
+export default function recipeIngredientReducer(state = {recipeIngredients: [], currentRecipeIngredient: {}}, action) {
   switch (action.type) {
     case GET_INGREDIENTS_FOR_RECIPE:
-      return action.recipeIngredients
+      return {...state, recipeIngredients: action.recipeIngredients}
     case ADD_RECIPE_INGREDIENT:
-      return [...recipeIngredients, action.recipeIngredient]
+      return {...state, recipeIngredients: [...recipeIngredients, action.recipeIngredient], currentRecipeIngredient: action.currentRecipeIngredient}
     case UPDATE_RECIPE_INGREDIENT:
-      return recipeIngredients.map((recipeIng) => {
+      return {...state, recipeIngredients: recipeIngredients.map((recipeIng) => {
         return (recipeIng.id === action.recipeIngredient.id) ? action.recipeIngredient : recipeIng
-      })
+      })}
     default:
-      return recipeIngredients
+      return state
   }
 }
 
@@ -39,7 +39,6 @@ export default function recipeIngredientReducer(recipeIngredients = [], action) 
 export const fetchIngredientsForRecipe = recipeId =>
   dispatch => axios.get(`/api/recipeIngredients/recipe/${recipeId}`)
     .then(res => {
-      console.log('IN THUNK!!!!', res)
       return res.data
     })
     .then(recipeIngredients => {
